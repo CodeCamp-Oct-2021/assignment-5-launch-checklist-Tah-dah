@@ -10,10 +10,9 @@ window.addEventListener("load", function() {
     const cargoLevel = document.querySelector("input[name=cargoMass]");
     const list = document.getElementById("faultyItems"); 
 
-
     list.style.visibility = "hidden"; 
 
-    let form = document.querySelector("form");
+    let form = document.querySelector("form"); 
     form.addEventListener("submit", function(event) { 
         
         formSubmission(document, list, pilot.value, copilot.value, fuelLevel.value, cargoLevel.value);
@@ -25,13 +24,13 @@ window.addEventListener("load", function() {
         } 
         if (validateInput(pilot.value) == "Is a Number" || validateInput(copilot.value) == "Is a Number") {
             list.style.visibility = "hidden"; 
-            alert("Pilot and CoPilot's names should be letters only.");
+            alert("Valid Information must be entered. Pilot and CoPilot's names should be letters only.");
             event.preventDefault();
         }
 
         if (validateInput(fuelLevel.value) == "Not a Number" || validateInput(cargoLevel.value) == "Not a Number") {
             list.style.visibility = "hidden"; 
-            alert("Fuel Level and Cargo Mass should be numbers only.");
+            alert("Valid Information must be entered. Fuel Level and Cargo Mass should be numbers only.");
             event.preventDefault();
         }
         event.preventDefault();

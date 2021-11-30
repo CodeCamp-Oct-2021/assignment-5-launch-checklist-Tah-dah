@@ -46,15 +46,32 @@ if (cargoLevel > 10000 && fuelLevel < 10000){
     fuelStatus.innerHTML = "Fuel level too low for launch";
     cargoStatus.innerHTML = "Cargo mass too heavy for launch";
 
-} else if (fuelLevel < 10000 && cargoLevel <= 10000)
+} else if (fuelLevel < 10000 && cargoLevel <= 10000){
     list.style.visibility= "visible";
     h2.style.color = "rgb(255, 0, 0)";
     h2.innerHTML = "Shuttle not ready for launch";
     pilotStatus.innerHTML = `Pilot ${pilot} is ready for launch`;
     copilotStatus.innerHTML = `Co-pilot ${copilot} is ready for launch`;
-    fuelStatus.innerHTML = "Fuel level too low for launch";
     cargoStatus.innerHTML = "Cargo mass too light for launch";
-    
+
+} else if (cargoLevel > 10000 && fuelLevel >= 10000){
+    list.style.visibility= "visible";
+    h2.style.color = "rgb(255, 0, 0)";
+    h2.innerHTML = "Shuttle not ready for launch";
+    pilotStatus.innerHTML = `Pilot ${pilot} is ready for launch`;
+    copilotStatus.innerHTML = `Co-pilot ${copilot} is ready for launch`;
+    fuelStatus.innerHTML = "Fuel level high enough for launch";
+    cargoStatus.innerHTML = "Cargo mass too heavy for launch";
+
+} else if (cargoLevel <= 10000 && fuelLevel >= 10000) {
+    list.style.visibility = "visible";
+    h2.style.color = "rgb(0, 255, 0)"; /*GREEN*/
+    h2.innerHTML = "Shuttle is Ready for Launch";
+    pilotStatus.innerHTML = `Pilot ${pilot} is ready for launch`;
+    copilotStatus.innerHTML = `Co-pilot ${copilot} is ready for launch`;
+    fuelStatus.innerHTML = "Fuel level high enough for launch";
+    cargoStatus.innerHTML = "Cargo mass low enough for launch";
+}
 async function myFetch() {
     let planetsReturned;
 
